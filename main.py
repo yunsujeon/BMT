@@ -44,9 +44,9 @@ if __name__ == "__main__":
                         help='Embedding code name from torchtext.vocab.Vocab')
     parser.add_argument('--unfreeze_word_emb', dest='unfreeze_word_emb', action='store_true',
                         default=False, help='Whether to finetune the pre-trained text embeddings')
-    parser.add_argument('--feature_timespan_in_fps', type=int, default=64,
+    parser.add_argument('--feature_timespan_in_fps', type=int, default=36,
                         help='how many fps the input features will temporally cover')
-    parser.add_argument('--fps_at_extraction', type=int, default=25, 
+    parser.add_argument('--fps_at_extraction', type=int, default=15, 
                         help='how many fps were used at feature extraction')
     parser.add_argument('--audio_feature_timespan', type=float,
                         default=0.96, help='audio feature timespan')

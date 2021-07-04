@@ -240,20 +240,50 @@ def caption_proposals(
                 strings = strings[:first_entry_of_eos]
             except ValueError:
                 pass
+    
+#            print(strings)
+#            sentence = ' '.join(strings)
+#            sentence = sentence.capitalize()
+#            results.append({
+#                'start': round(start.item(), 1),
+#                'end': round(end.item(), 1),
+#                'sentence': sentence
+#            })
 
-            # join everything together
-            sentence = ' '.join(strings)
-            # Capitalize the sentence
-            sentence = sentence.capitalize()
+            if 'to'and'the'and'camera' in strings :
+                print('to the camera 삭제됨')
+                continue
+            elif (round(end.item(),1)-round(start.item(),1))>20:
+                print('time span 초과로 삭제됨')
+                continue
+            else :
+                # print(strings)
+                sentence = ' '.join(strings)
+                sentence = sentence.capitalize()
+                results.append({
+                    'start': round(start.item(), 1),
+                    'end': round(end.item(), 1),
+                    'sentence': sentence
+                })
 
-            # add results to the list
-            results.append({
-                'start': round(start.item(), 1), 
-                'end': round(end.item(), 1), 
-                'sentence': sentence
-            })        
+        result2 = []
+        realtime = -10
+        # result 를 start time 으로 정렬해준다.
+        data = sorted(results, key=lambda results: (results['start']))
+        for d in data:
+            # 좁디좁은 예외조건
+            if d['start']==0 and (d['end']-d['start']<5 or d['end']-d['start']>10):
+                print('0초 예외조건에 의해 중복 삭제됨')
+                continue
+            # 5초 간 또 나온다면 버리기
+            elif d['start']-5 < realtime :
+                print('5초안에 문장 도출 삭제됨')
+                continue
+            else :
+                result2.append(d)
+            realtime = d['start']
 
-    return results
+    return result2
 
 
 if __name__ == "__main__":
@@ -293,6 +323,14 @@ if __name__ == "__main__":
         cap_model, feature_paths, train_dataset, cap_cfg, args.device_id, proposals, args.duration_in_secs
     )
 
-    print(captions)
+    for i in captions:
+        print(i)
+
+    with open('./result.txt','w') as f:
+        for item in captions:
+            f.write("%s" %item)
+    f.close()
+
+
 
     # TODO: save original num of features (0th dim.) and just remove padding from them and trim accordingly
