@@ -1,6 +1,6 @@
 # This project is forked by [This project](https://github.com/v-iashin/BMT)
 
-# Dense Video Captioning with Bi-modal Transformer
+## Dense Video Captioning with Bi-modal Transformer
 
 ## Getting Started
 
