@@ -1,10 +1,10 @@
-# This project is forked by [This project](https://github.com/v-iashin/BMT)
+# Dense Video Captioning with Bi-modal Transformer
 
-## Dense Video Captioning with Bi-modal Transformer
-
-## Getting Started
+### forked by [This project](https://github.com/v-iashin/BMT)
 
 This project was developed by adding training data from the original project and giving exception conditions. If you want to use the original project, go to the [link](https://github.com/v-iashin/BMT)
+
+## Getting Started
 
 _The code is tested on `Ubuntu 16.04/18.04` with one `NVIDIA GPU 1080Ti/2080Ti`. If you are planning to use it with other software/hardware, you might need to adapt `conda` environment files or even the code._
 
