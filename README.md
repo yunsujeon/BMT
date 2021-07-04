@@ -1,5 +1,7 @@
 # Dense Video Captioning with Bi-modal Transformer
 
+<img src="https://github.com/v-iashin/v-iashin.github.io/raw/master/images/bmt/bi_modal_transformer.svg" alt="Bi-Modal Transformer with Proposal Generator" width="900">
+
 ### forked by [This project](https://github.com/v-iashin/BMT)
 
 This project was developed by adding training data from the original project and giving exception conditions. If you want to use the original project, go to the [link](https://github.com/v-iashin/BMT)
