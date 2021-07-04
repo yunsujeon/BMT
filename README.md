@@ -27,9 +27,9 @@ python -m spacy download en
 ```
 
 ## Add Train Data
-Additionally, we created an additional dataset fitted to the movie scene. If you want, You can download the feature extracted npy file from the link 
-[i3d_features](https://drive.google.com/drive/folders/1UTVkkgowg5wriGvX5vEuREAmBtnsg17L?usp=sharing)
-[vggish_features](https://drive.google.com/drive/folders/1xTI488LitnyNrBwL8PTWlBx0-id_m_0A?usp=sharing)
+Additionally, we created an additional dataset fitted to the movie scene. If you want, You can download the feature extracted npy file from the link   
+[i3d_features](https://drive.google.com/drive/folders/1UTVkkgowg5wriGvX5vEuREAmBtnsg17L?usp=sharing)   
+[vggish_features](https://drive.google.com/drive/folders/1xTI488LitnyNrBwL8PTWlBx0-id_m_0A?usp=sharing)   
 
 If you want to use this extra data for training, you'll need to do some extra work.
 1. Copy the files in the i3d folder to /BMT/data/i3d_25fps_stack64step64_2stream_npy/
