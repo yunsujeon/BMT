@@ -44,9 +44,9 @@ if __name__ == "__main__":
                         help='Embedding code name from torchtext.vocab.Vocab')
     parser.add_argument('--unfreeze_word_emb', dest='unfreeze_word_emb', action='store_true',
                         default=False, help='Whether to finetune the pre-trained text embeddings')
-    parser.add_argument('--feature_timespan_in_fps', type=int, default=36,
+    parser.add_argument('--feature_timespan_in_fps', type=int, default=36,#default : 64
                         help='how many fps the input features will temporally cover')
-    parser.add_argument('--fps_at_extraction', type=int, default=15, 
+    parser.add_argument('--fps_at_extraction', type=int, default=15,# default : 25
                         help='how many fps were used at feature extraction')
     parser.add_argument('--audio_feature_timespan', type=float,
                         default=0.96, help='audio feature timespan')
@@ -76,10 +76,10 @@ if __name__ == "__main__":
     parser.add_argument('--B', type=int, default=32, help='batch size per device')
     parser.add_argument('--inf_B_coeff', type=int, default=2,
                         help='The batch size on inference will be inf_B_coeff times B arg')
-    parser.add_argument('--epoch_num', type=int, default=100, help='number of epochs to train')
+    parser.add_argument('--epoch_num', type=int, default=20, help='number of epochs to train') # default = 100
     parser.add_argument('--one_by_one_starts_at', type=int, default=1,
                         help='# of epochs to skip before starting 1-by-1 validation (saves time)')
-    parser.add_argument('--early_stop_after', type=int, default=30,
+    parser.add_argument('--early_stop_after', type=int, default=20, # default = 30
                         help='number of epochs to wait for best metric to change before stopping')
     parser.add_argument(
         '--smoothing', type=float, default=0.7,
@@ -96,9 +96,9 @@ if __name__ == "__main__":
                         action='store_true', default=False)
     parser.add_argument('--obj_coeff', type=float, default=1, help='objectness coeff in loss')
     parser.add_argument('--noobj_coeff', type=float, default=100, help='noobjectness coeff in loss')
-    parser.add_argument('--pad_audio_feats_up_to', type=int, default=800, 
+    parser.add_argument('--pad_audio_feats_up_to', type=int, default=800, #default=800
                         help='max feature length to pad other features to')
-    parser.add_argument('--pad_video_feats_up_to', type=int, default=300, 
+    parser.add_argument('--pad_video_feats_up_to', type=int, default=300, #default=300
                         help='max feature length to pad other features to')
     parser.add_argument('--nms_tiou_thresh', type=float, help='non-max suppression objectness thr')
     parser.add_argument('--log_dir', type=str, default='./log/')
